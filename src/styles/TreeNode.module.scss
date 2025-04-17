@@ -1,0 +1,187 @@
+.TreeNode {
+  backdrop-filter: brightness(1.4);
+  padding: 10px 10px 10px 54px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  &.opened {
+    height: fit-content;
+
+    & > .header {
+      .collapseButton {
+        rotate: 90deg;
+      }
+    }
+
+    & > .body {
+      height: fit-content;
+      overflow: visible;
+    }
+  }
+
+  &.rootNode > .header {
+    & > .buttonsWrapper > .deleteButton {
+      display: none !important;
+    }
+
+    & > .text::after {
+      content: " (root)";
+      font-size: 20px;
+      opacity: 0.5;
+    }
+  }
+
+  .TreeNode:last-child {
+    padding-bottom: 0;
+  }
+
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+
+    .dot {
+      position: absolute;
+      top: 18px;
+      left: 16px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .collapseButton {
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      width: 40px;
+      height: 50px;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s all;
+      background: url("../assets/svg/arrow-icon.svg") center center no-repeat;
+      background-size: contain;
+    }
+
+    .text {
+      font-size: 24px;
+      font-family: "Nunito", sans-serif;
+    }
+
+    .inputWrapper {
+      position: relative;
+
+      .input {
+        width: 2000px;
+        max-width: 700px;
+        font-size: 24px;
+        font-family: "Nunito", sans-serif;
+        border: none;
+        outline: none;
+        background-color: transparent;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.5);
+        transition: 0.2s all;
+      }
+
+      &::after {
+        width: 0;
+      }
+
+      &:has(.input:focus)::after {
+        width: 100%;
+      }
+    }
+
+    .buttonsWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .button {
+        width: 40px;
+        height: 40px;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: center center;
+        cursor: pointer;
+        transition: 0.2s scale;
+        border-radius: 50%;
+
+        &:hover {
+          scale: 1.1;
+        }
+
+        &:active {
+          scale: 0.98;
+        }
+      }
+
+      .addButton {
+        background-image: url("../assets/svg/add-icon.svg");
+      }
+
+      .editButton {
+        background-image: url("../assets/svg/edit-icon.svg");
+        background-size: 36px;
+      }
+
+      .deleteButton {
+        background-image: url("../assets/svg/delete-icon.svg");
+        background-size: 30px;
+      }
+
+      .doneButton {
+        background-image: url("../assets/svg/tick-icon.svg");
+        background-size: 30px;
+        margin-right: 40px;
+      }
+    }
+  }
+
+  .body {
+    position: relative;
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -29px;
+      height: calc(100% - 10px);
+      width: 5px;
+      border-width: 3px;
+      border-style: solid;
+      border-color: rgba(255, 255, 255, 0.5);
+      border-radius: 5px;
+    }
+
+    .TreeNode {
+      padding-right: 0;
+    }
+  }
+}

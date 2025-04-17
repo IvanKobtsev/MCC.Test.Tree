@@ -1,0 +1,56 @@
+.Tree {
+  .header {
+    background-color: #5242e8dd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 600px;
+    height: 100px;
+    color: white;
+    font-family: "Nunito", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .mainHeader {
+      font-size: 50px;
+    }
+
+    .resetButton {
+      background-color: transparent;
+      backdrop-filter: brightness(1.5);
+      border-radius: 5px;
+      padding: 5px 10px;
+      border: none;
+      font-size: 24px;
+      font-family: "Nunito", sans-serif;
+      cursor: pointer;
+      margin-left: 20px;
+      transition: 0.2s all;
+      user-select: none;
+
+      &.inactive {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      &:hover {
+        backdrop-filter: brightness(1.7);
+      }
+
+      &:active {
+        scale: 0.95;
+      }
+    }
+  }
+
+  .body {
+    background-color: #5242e8aa;
+    color: white;
+    min-height: 500px;
+    min-width: 1600px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
+  }
+}
