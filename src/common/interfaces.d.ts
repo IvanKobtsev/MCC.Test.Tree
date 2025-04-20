@@ -2,7 +2,6 @@ import { RefObject } from "react";
 
 export interface TreeContextData {
   treeData: RefObject<TreeData | null>;
-  getNode: (path: string) => TreeNodeData | null;
   update: () => void;
 }
 

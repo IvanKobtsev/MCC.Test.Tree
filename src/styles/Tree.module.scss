@@ -47,10 +47,60 @@
     background-color: #5242e8aa;
     color: white;
     min-height: 500px;
-    min-width: 1600px;
+    width: 1600px;
     padding: 20px;
     box-sizing: border-box;
     border-radius: 15px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
+  }
+}
+
+@media (max-width: 1650px) {
+  .Tree {
+    .body {
+      width: 1200px;
+    }
+  }
+}
+
+@media (max-width: 1250px) {
+  .Tree {
+    .header {
+      width: 400px;
+      height: 80px;
+
+      .mainHeader {
+        font-size: 30px;
+      }
+      .resetButton {
+        font-size: 16px;
+      }
+    }
+
+    .body {
+      width: 800px;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .Tree {
+    width: 100%;
+
+    .header {
+      width: 300px;
+      height: 60px;
+
+      .mainHeader {
+        font-size: 24px;
+      }
+      .resetButton {
+        font-size: 12px;
+      }
+    }
+
+    .body {
+      width: 100%;
+    }
   }
 }
